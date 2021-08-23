@@ -27,19 +27,36 @@ class EmployeeTest {
 		assertEquals(esperado, remuneracion,0) ;
 	}
 	
-	@Test
-	void SupervisorDolar() {
-		
-	}
-	
-	@Test
+	@Test //
 	void SupervisorEuro() {
-		
+		Employee e =  new Employee(1350.0f,"EURO", 2.5f,EmployeeType.Supervisor);
+		Float remuneracion = e.CalculateYearBonus();
+		Float esperado = (float) 1475.5; 
+		assertEquals(esperado, remuneracion,0) ;
 	}
 	
-	@Test
-	void ManagerEuro() {
-		
+	@Test //
+	void SupervisorDolar() {
+		Employee e =  new Employee(1550.0f,"USD", 1.5f,EmployeeType.Supervisor);
+		Float remuneracion = e.CalculateYearBonus();
+		Float esperado = (float) 1743.0; 
+		assertEquals(esperado, remuneracion,0) ;
+	}
+	
+	@Test //
+	void ManagerDolar() {
+		Employee e =  new Employee(1020.0f,"USD", 0.5f,EmployeeType.Manager);
+		Float remuneracion = e.CalculateYearBonus();
+		Float esperado = (float) 1406.0; 
+		assertEquals(esperado, remuneracion,0) ;
+	}
+	
+	@Test //
+	void workerEuro() {
+		Employee e =  new Employee(500.0f,"EURO", 2.4f,EmployeeType.Worker);
+		Float remuneracion = e.CalculateYearBonus();
+		Float esperado = (float) 386; 
+		assertEquals(esperado, remuneracion,0) ;
 	}
 	
 	@Test
