@@ -64,6 +64,32 @@ class EmployeeTest {
 		
 	}
 	
+	/*
+	 * Se comprueba que el currency este correcto con la longitud correcta de la abreviatura
+	 * */
+	
+	@Test
+	void comprobarabreviaturacurrency() {
+		Employee e =  new Employee(1300.0f,"USA", 3.6f,EmployeeType.Worker);
+		String divisa=e.getCurrency();
+		if(divisa.length()!=3) {
+			fail("Abreviatura de tipo currency incorrecto, debe tener 3 caracteres");
+		}
+				
+		
+	}
+	/*
+	 * Se comprueba que el salario para el trabajador Worker
+	 * */
+	@Test
+	void SalarioValidoWorker() {
+		Employee e =  new Employee(1200.0f,"USA", 3.5f,EmployeeType.Worker);
+		Float remuneracion = e.cs();
+		Float esperado = (float) 1140.0;
+		assertEquals(esperado, remuneracion,0) ;
+		
+	}
+	
 	
 
 
