@@ -1,10 +1,13 @@
-package tallerpruebas;
+package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class UnitTest {
+import tallerpruebas.Employee;
+import tallerpruebas.EmployeeType;
+
+class EmployeeTest {
 
 	
 	@Test
@@ -38,6 +41,30 @@ class UnitTest {
 	void ManagerEuro() {
 		
 	}
+	
+	@Test
+	void comprobarcurrency() {
+		Employee e =  new Employee(1200.0f,"USA", 3.5f,EmployeeType.Manager);
+		String divisa=e.getCurrency();
+		 for (int i = 0; i < divisa.length(); i++) {
+	            if (Character.isDigit(divisa.charAt(i))) {
+	                fail("Tipo de dato incorrecto");
+	            }
+	        }
+		
+	}
+	
+	@Test
+	void SalarioValido() {
+		Employee e1 =  new Employee(1200.0f,"USA", 3.5f,EmployeeType.Manager);
+		if(e1.getSalary()<0) {
+			fail("El salario no puede ser negativo");
+			
+		}	
+		
+	}
+	
+	
 
 
 }

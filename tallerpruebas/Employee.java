@@ -73,4 +73,13 @@ public class Employee
         }
         return 0.0F;
     }
-}
+    public String getCurrency(){
+    	return currency;
+    	
+    }
+    
+    public float getSalary() {
+    	return salary;
+    	
+    }
+    }
