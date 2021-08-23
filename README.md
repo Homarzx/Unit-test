@@ -1,9 +1,6 @@
 # Unit-test
 Taller de UnitTest Eclipse
-Integrantes del GRUPO # 4:
-AGUIRRE VELIZ DENNISSE NICOLLE
-ENCALADA PINCAY STEVEN GUILLERMO
-HERRERA NIETO HOMAR FLAVIO
-QUIMI BRUNNER ALEJANDRA VICTORIA
-VELIZ CHAVEZ JAHIR DAVID
+Integrantes del GRUPO # 4:  
+ Dennisse Aguirre, Steven Encalada, Homar Herrera, Alejandra Quimi, Jahir Veliz
+
 
