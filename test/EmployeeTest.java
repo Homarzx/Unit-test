@@ -1,22 +1,36 @@
 package test;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import tallerpruebas.Employee;
 import tallerpruebas.EmployeeType;
 
 class EmployeeTest {
-
+	private int month;
 	
+	@Before
+	public void init(){
+		Date date = new Date();
+		LocalDate localDate;
+		localDate = date.toInstant()
+		           .atZone(ZoneId.systemDefault()).toLocalDate();
+		int month = localDate.getMonthValue();
+		
+	}
+
 	@Test
 	void calculadorRemuneracionDolar() {
 		Employee e =  new Employee(500.50f,"USD", 3.5f,EmployeeType.Worker);
 		Float remuneracion = e.CalculateYearBonus();
 		Float esperado = (float) 386.0;
-		assertEquals(esperado, remuneracion,0) ;
-
+		assertEquals(esperado, remuneracion,0);
 	}
 	
 	@Test
@@ -68,7 +82,6 @@ class EmployeeTest {
 	                fail("Tipo de dato incorrecto");
 	            }
 	        }
-		
 	}
 	
 	@Test
@@ -107,7 +120,24 @@ class EmployeeTest {
 		
 	}
 	
+	@Test
+	public void SalarioEuroSupervisor() {	
+		Employee e =  new Employee(1550.0f,"USD", 1.5f,EmployeeType.Supervisor);
+		Float salario = e.cs();
+		if(month%2==0)
+			assertEquals(1472.5f, salario,0);
+		else
+			assertEquals(1614.33f, salario, 0.1);
+	}
 	
-
+	@Test
+	public void SalarioEuroManager() {	
+		Employee e =  new Employee(1200.0f,"EURO", 3.1f,EmployeeType.Manager);
+		Float salario = e.cs();
+		if(month%2==0)
+			assertEquals(1140.0f, salario,0);
+		else 
+			assertEquals(1264.33f, salario, 0.1);
+	}	
 
 }
